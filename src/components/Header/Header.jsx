@@ -7,6 +7,8 @@ import User from "../../../public/img/user-avatar.jpg";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const user = null;
+
   return (
     <nav className="flex items-center justify-between flex-wrap p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72">
@@ -59,13 +61,19 @@ const Header = () => {
           </Link>
         </div>
         <div>
-          <div className="tooltip tooltip-bottom" data-tip="hello">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src={User} />
+          {user ? (
+            <>
+              <div className="tooltip tooltip-bottom" data-tip="hello">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={User} />
+                  </div>
+                </label>
               </div>
-            </label>
-          </div>
+            </>
+          ) : (
+            <button className="btn btn-sm btn-outline">Login</button>
+          )}
         </div>
       </div>
     </nav>
