@@ -7,6 +7,8 @@ import AllChefs from "../pages/Chefs/AllChefs";
 import SingleChef from "../pages/Chefs/SingleChef";
 import RecipesLayout from "../layouts/Recipes/RecipesLayout";
 import AllRecipes from "../pages/Recipes/AllRecipes";
+import Login from "../pages/Home/Login/Login";
+import Register from "../pages/Home/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
