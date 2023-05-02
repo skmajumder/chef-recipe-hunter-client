@@ -16,7 +16,7 @@ const Chefs = ({ chef }) => {
         <h2 className="card-title">{name}</h2>
         <ul className="space-y-2">
           <li>
-            <strong>Experience:</strong> {experience_years}
+            <strong>Experience:</strong> {experience_years} Years
           </li>
           <li>
             <strong>Numbers of recipes:</strong> {num_recipes.length}
@@ -26,7 +26,9 @@ const Chefs = ({ chef }) => {
           </li>
         </ul>
         <div className="card-actions justify-end">
-          <Link to={''} className="btn btn-primary btn-sm">View Recipes</Link>
+          <Link to={`/chefs/${id}`} className="btn btn-primary btn-sm">
+            View Recipes
+          </Link>
         </div>
       </div>
     </div>

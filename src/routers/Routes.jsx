@@ -4,6 +4,7 @@ import MainLayout from "../layouts/Main/MainLayout";
 import Home from "../pages/Home/Home";
 import ChefsLayout from "../layouts/Chefs/ChefsLayout";
 import AllChefs from "../pages/Chefs/AllChefs";
+import SingleChef from "../pages/Chefs/SingleChef";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/chefs",
         element: <AllChefs />,
+      },
+      {
+        path: ":id",
+        element: <SingleChef />,
       },
     ],
   },
