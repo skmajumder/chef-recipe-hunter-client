@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 // eslint-disable-next-line react/prop-types
 const Recipes = ({ recipe }) => {
@@ -25,15 +27,19 @@ const Recipes = ({ recipe }) => {
           <p>
             <strong>Short Intro:</strong> {recipeShortDescirtion}
           </p>
-          <p>
-            <strong>Rating:</strong> {rating}
+          <p className="flex justify-start items-center gap-2">
+            <strong>Rating:</strong>
+            <Rating style={{ maxWidth: 90 }} value={rating} readOnly />
+            <span>({rating})</span>
           </p>
           <p>
             <strong>Ingredients:</strong>
           </p>
           <ul className="list-disc">
             {ingredients.map((ingredient, index) => (
-              <li key={index} className="ml-6">{ingredient}</li>
+              <li key={index} className="ml-6">
+                {ingredient}
+              </li>
             ))}
           </ul>
           <p>
