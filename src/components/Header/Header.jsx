@@ -48,6 +48,12 @@ const Header = () => {
             Home
           </Link>
           <Link
+            to={"/chefs"}
+            className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 font-semibold text-[17px]"
+          >
+            Chefs
+          </Link>
+          <Link
             to={"/"}
             className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 font-semibold text-[17px]"
           >
