@@ -1,15 +1,37 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
+
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import CodeImg from "../../../public/img/code.png";
+
+const ref = React.createRef();
 
 const BlogPage = () => {
   const pageTitle = "Blog";
   return (
     <>
       <Breadcrumb pageTitle={pageTitle} />
-      <section className="all-chefs mt-10">
+      <section className="section-pdf">
+        <div className="container px-6 py-14">
+          <div className="flex justify-center items-center">
+            <Pdf targetRef={ref} filename="blog.pdf" x={1} y={1}>
+              {({ toPdf }) => (
+                <button onClick={toPdf} className="btn btn-outline">
+                  Generate Pdf
+                </button>
+              )}
+            </Pdf>
+          </div>
+        </div>
+      </section>
+      <section
+        style={{ width: "100%", height: "100%" }}
+        className="all-chefs"
+        ref={ref}
+      >
         <div className="container px-6 py-14">
           <div className="grid grid-cols-1 justify-start items-center gap-y-7">
             <article className="question space-y-4">
