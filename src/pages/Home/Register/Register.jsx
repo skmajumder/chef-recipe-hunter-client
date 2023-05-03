@@ -5,7 +5,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext);
 
   // Store input value in state
   const [name, setName] = useState("");
@@ -117,6 +117,16 @@ const Register = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
+      .then((result) => {
+        const loggedInUser = result.user;
+      })
+      .catch((error) => {
+        setRegisterError(`Error: ${error.message}`);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    githubSignIn()
       .then((result) => {
         const loggedInUser = result.user;
       })
@@ -281,6 +291,7 @@ const Register = () => {
                   Google Sign-Up
                 </button>
                 <button
+                  onClick={handleGithubSignIn}
                   className="bg-gray-800 text-white w-full px-4 py-2 rounded-md hover:bg-gray-900"
                   type="button"
                 >

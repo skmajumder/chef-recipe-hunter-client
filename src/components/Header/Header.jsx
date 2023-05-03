@@ -53,12 +53,14 @@ const Header = () => {
           >
             Chefs
           </Link>
-          <Link
-            to={"/recipes"}
-            className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 font-semibold text-[17px]"
-          >
-            All Recipe
-          </Link>
+          {user && (
+            <Link
+              to={"/recipes"}
+              className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 font-semibold text-[17px]"
+            >
+              All Recipe
+            </Link>
+          )}
           <Link
             to={"/"}
             className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 font-semibold text-[17px]"
