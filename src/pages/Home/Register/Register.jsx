@@ -2,6 +2,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -18,6 +19,13 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState("");
   const [photoError, setPhotoError] = useState("");
   const [registerError, setRegisterError] = useState("");
+
+  //   Show password
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   // Get Name Value
   const handleName = (event) => {
@@ -191,7 +199,7 @@ const Register = () => {
                   required
                 />
               </div>
-              <div className="mb-4">
+              <div className="mb-4 relative">
                 <label
                   className="block text-gray-700 font-medium mb-2"
                   htmlFor="password"
@@ -206,7 +214,7 @@ const Register = () => {
                         : "border-green-400"
                       : "focus:border-gray-400"
                   }`}
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   name="registerPassword"
                   value={password}
@@ -214,6 +222,13 @@ const Register = () => {
                   placeholder="Enter your password"
                   required
                 />
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 px-2 py-1 mt-8 text-gray-700 hover:text-indigo-500 focus:outline-none focus:text-indigo-500"
+                  onClick={handleShowPassword}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
               </div>
               <div className="mb-4">
                 <label
