@@ -2,21 +2,35 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 // Create Context API
 export const AuthContext = createContext(null);
-const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // Register Provider with Email, Google and GitHub
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  // Signup with Google
+  const googleSignIn = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  // Signup with GitHub
 
   //   Create SignUp Function
   const createUser = (email, password) => {
@@ -40,12 +54,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log(currentUser);
       setLoading(false);
     });
     return () => unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const authInfo = { user, createUser, loginUser, logout, loading };
+  const authInfo = {
+    user,
+    createUser,
+    googleSignIn,
+    loginUser,
+    logout,
+    loading,
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

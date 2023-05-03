@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../public/img/omnifood-logo.png";
 import User from "../../../public/img/user-avatar.jpg";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const user = null;
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <nav className="flex items-center justify-between flex-wrap p-6">
@@ -69,13 +69,14 @@ const Header = () => {
         <div>
           {user ? (
             <>
-              <div className="tooltip tooltip-bottom" data-tip="hello">
+              <div className="tooltip" data-tip={user?.displayName}>
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
                     <img src={User} />
                   </div>
                 </label>
               </div>
+              <button onClick={logout}>Logout</button>
             </>
           ) : (
             <Link to={"/login"} className="btn btn-sm btn-outline">

@@ -5,7 +5,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
 
   // Store input value in state
   const [name, setName] = useState("");
@@ -112,6 +112,16 @@ const Register = () => {
       .catch((error) => {
         const errorMessage = error.message;
         setRegisterError(errorMessage);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedInUser = result.user;
+      })
+      .catch((error) => {
+        setRegisterError(`Error: ${error.message}`);
       });
   };
 
@@ -264,6 +274,7 @@ const Register = () => {
               </div>
               <div className="flex flex-col justify-between items-center space-x-2 space-y-3">
                 <button
+                  onClick={handleGoogleSignIn}
                   className="bg-red-600 text-white w-full px-4 py-2 rounded-md hover:bg-red-700"
                   type="button"
                 >
