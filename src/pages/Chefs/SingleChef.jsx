@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Recipes from "../../components/Recipes/Recipes";
+import LazyLoad from "react-lazy-load";
 
 const SingleChef = () => {
   const { id: chefID } = useParams();
@@ -33,7 +34,10 @@ const SingleChef = () => {
         <div className="container px-6 py-10">
           <div className="hero min-h-16 bg-base-200">
             <div className="hero-content flex-col gap-12 lg:flex-row">
-              <img src={picture} className="max-w-md rounded-lg shadow-2xl" />
+              <LazyLoad>
+                <img src={picture} className="max-w-md rounded-lg shadow-2xl" />
+              </LazyLoad>
+
               <div className="chef-info">
                 <h1 className="text-5xl font-bold">{name}</h1>
                 <p className="py-6">{bio}</p>

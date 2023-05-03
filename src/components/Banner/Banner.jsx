@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import BannerImg from "../../../public/img/banner.png";
+import LazyLoad from "react-lazy-load";
 
 const Banner = () => {
   return (
@@ -18,7 +19,13 @@ const Banner = () => {
             <button className="btn">Get Started</button>
           </div>
           <div className="md:w-1/2">
-            <img className="w-[80%] text-right" src={BannerImg} alt="" />
+            <LazyLoad>
+              <img
+                className="w-[80%] text-right"
+                src={BannerImg}
+                alt="Banner"
+              />
+            </LazyLoad>
           </div>
         </div>
       </div>

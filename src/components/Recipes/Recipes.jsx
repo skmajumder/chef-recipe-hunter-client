@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { toast } from "react-hot-toast";
+import LazyLoad from "react-lazy-load";
 
 // eslint-disable-next-line react/prop-types
 const Recipes = ({ recipe }) => {
@@ -28,7 +29,9 @@ const Recipes = ({ recipe }) => {
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
-        <img src={recipe_img} alt={recipe_name} />
+        <LazyLoad>
+          <img src={recipe_img} alt={recipe_name} />
+        </LazyLoad>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{recipe_name}</h2>
