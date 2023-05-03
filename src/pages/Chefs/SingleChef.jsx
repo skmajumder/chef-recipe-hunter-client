@@ -12,14 +12,14 @@ const SingleChef = () => {
   const [chefRecipes, setChefRecipes] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/chefs/${chefID}`)
+    fetch(`https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs/${chefID}`)
       .then((response) => response.json())
       .then((data) => setChefDetails(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/chefs/recipes/${chefID}`)
+    fetch(`https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs/recipes/${chefID}`)
       .then((response) => response.json())
       .then((data) => setChefRecipes(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps

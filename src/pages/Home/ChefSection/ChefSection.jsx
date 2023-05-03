@@ -8,7 +8,7 @@ const ChefSection = () => {
   const [showMoreButton, setShowMoreButton] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/chefs")
+    fetch("https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs")
       .then((response) => response.json())
       .then((data) => setChefs(data));
   }, []);

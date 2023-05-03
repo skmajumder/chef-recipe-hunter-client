@@ -7,7 +7,7 @@ const AllRecipes = () => {
   const [allRecipes, setAllRecipes] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/recipes`)
+    fetch(`https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/recipes`)
       .then((response) => response.json())
       .then((data) => setAllRecipes(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps

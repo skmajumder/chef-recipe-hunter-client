@@ -7,7 +7,7 @@ const AllChefs = () => {
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/chefs")
+    fetch("https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs")
       .then((response) => response.json())
       .then((data) => setChefs(data));
   }, []);
