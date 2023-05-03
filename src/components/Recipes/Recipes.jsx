@@ -30,7 +30,7 @@ const Recipes = ({ recipe }) => {
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
         <LazyLoad>
-          <img src={recipe_img} alt={recipe_name} />
+          <img src={recipe_img} className="w-full h-3/6" alt={recipe_name} />
         </LazyLoad>
       </figure>
       <div className="card-body">

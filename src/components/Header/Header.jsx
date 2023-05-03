@@ -73,14 +73,21 @@ const Header = () => {
         <div>
           {user ? (
             <>
-              <div className="tooltip" data-tip={user?.displayName}>
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={userAvatar} />
-                  </div>
-                </label>
+              <div className="flex justify-center items-center gap-2">
+                <div className="tooltip" data-tip={user?.displayName}>
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src={userAvatar} />
+                    </div>
+                  </label>
+                </div>
+                <button onClick={logout} className="btn btn-sm btn-outline">
+                  Logout
+                </button>
               </div>
-              <button onClick={logout}>Logout</button>
             </>
           ) : (
             <Link to={"/login"} className="btn btn-sm btn-outline">

@@ -3,9 +3,11 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn, githubSignIn, userProfileUpdate } =
+    useContext(AuthContext);
 
   // Store input value in state
   const [name, setName] = useState("");
@@ -104,6 +106,7 @@ const Register = () => {
     createUser(registerEmail, registerPassword)
       .then((userCredential) => {
         const user = userCredential.user;
+        handleUpdateUserProfile(user, registerName, registerPhoto);
         setName("");
         setEmail("");
         setPassword("");
@@ -132,6 +135,18 @@ const Register = () => {
       })
       .catch((error) => {
         setRegisterError(`Error: ${error.message}`);
+      });
+  };
+
+  const handleUpdateUserProfile = (user, registerName, registerPhoto) => {
+    updateProfile(user, {
+      displayName: registerName,
+      photoURL: registerPhoto,
+    })
+      .then(() => {})
+      .catch((error) => {
+        const errorMessage = error.message;
+        setRegisterError(errorMessage);
       });
   };
 
