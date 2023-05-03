@@ -10,8 +10,6 @@ const SingleChef = () => {
   const [chefDetails, setChefDetails] = useState([]);
   const [chefRecipes, setChefRecipes] = useState([]);
 
-  console.log(chefRecipes);
-
   useEffect(() => {
     fetch(`http://localhost:3000/chefs/${chefID}`)
       .then((response) => response.json())
@@ -36,7 +34,7 @@ const SingleChef = () => {
           <div className="hero min-h-16 bg-base-200">
             <div className="hero-content flex-col gap-12 lg:flex-row">
               <img src={picture} className="max-w-md rounded-lg shadow-2xl" />
-              <div>
+              <div className="chef-info">
                 <h1 className="text-5xl font-bold">{name}</h1>
                 <p className="py-6">{bio}</p>
                 <ul className="space-y-2">

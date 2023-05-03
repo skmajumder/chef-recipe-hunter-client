@@ -19,8 +19,6 @@ const Login = () => {
 
   const destination = location?.state?.from?.pathname || "/";
 
-  console.log(destination);
-
   const handleEmail = (event) => {
     const emailInput = event.target.value;
     setEmail(emailInput);

@@ -9,6 +9,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
 
+  const userAvatar = user?.photoURL || User;
+
   return (
     <nav className="flex items-center justify-between flex-wrap p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72">
@@ -74,7 +76,7 @@ const Header = () => {
               <div className="tooltip" data-tip={user?.displayName}>
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src={User} />
+                    <img src={userAvatar} />
                   </div>
                 </label>
               </div>
