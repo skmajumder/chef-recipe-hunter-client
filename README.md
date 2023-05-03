@@ -2,12 +2,13 @@
 
 ## Github private repository
 
-Source Code: [https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-client-side-skmajumder]
-Server Code: [https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-skmajumder]
+Client-side GitHub repository: [https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-client-side-skmajumder]
+Server-side GitHub repository: [https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-skmajumder]
 
 ## Live Links
 
-Server Link: [https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app]
+Server Link (Vercel): [https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app]
+Site Link (Firebase Deploy): [https://chef-recipe-hunter-clien-fbe0f.web.app]
 
 ## Omnifood Features
 
