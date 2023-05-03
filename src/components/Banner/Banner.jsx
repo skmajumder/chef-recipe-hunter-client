@@ -7,9 +7,9 @@ const Banner = () => {
   return (
     <section className="banner">
       <div className="container px-6 py-14">
-        <div className="flex flex-col-reverse md:flex-row md:gap-16">
+        <div className="flex flex-col-reverse gap-4 md:flex-row md:gap-16">
           <div className="md:w-1/2">
-            <h1 className="font-bold text-6xl mb-6">
+            <h1 className="font-bold text-4xl md:text-6xl mb-6">
               Healthy Food Makes You Feel Good
             </h1>
             <p className="text-[#555] text-[18px] font-medium leading-7 mb-6">

@@ -27,7 +27,7 @@ const ChefSection = () => {
     <section className="section-chef">
       <div className="container px-6 py-14">
         <h3 className="text-center font-bold text-3xl mb-6">Our Chefs</h3>
-        <div className="grid grid-cols-3 gap-x-6 gap-y-5 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-5 mb-10">
           {chefs.slice(0, numChefsToShow).map((chef) => (
             <Chefs key={chef.id} chef={chef} />
           ))}

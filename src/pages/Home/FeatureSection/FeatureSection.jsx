@@ -10,7 +10,7 @@ const FeatureSection = () => {
         <h3 className="text-center font-bold text-3xl mb-6">
           Test Always Make You Fall In Love
         </h3>
-        <div className="grid grid-cols-3 gap-5 py-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 py-4">
           {features.map((feature) => (
             <Feature key={feature.id} feature={feature} />
           ))}

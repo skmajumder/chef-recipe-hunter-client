@@ -139,7 +139,7 @@ const Register = () => {
     <section className="section-registration">
       <div className="container px-6 py-14">
         <div className="flex justify-center items-center">
-          <div className="max-w-md w-[50%] mx-auto bg-white p-8 rounded-md shadow-md">
+          <div className="max-w-md w-[100%] md:w-[50%] mx-auto bg-white p-8 rounded-md shadow-md">
             <h2 className="text-xl font-medium mb-4 text-center">
               Registration Form
             </h2>

@@ -35,11 +35,14 @@ const SingleChef = () => {
           <div className="hero min-h-16 bg-base-200">
             <div className="hero-content flex-col gap-12 lg:flex-row">
               <LazyLoad>
-                <img src={picture} className="max-w-md rounded-lg shadow-2xl" />
+                <img
+                  src={picture}
+                  className="w-full md:max-w-md rounded-lg shadow-2xl"
+                />
               </LazyLoad>
 
               <div className="chef-info">
-                <h1 className="text-5xl font-bold">{name}</h1>
+                <h1 className="text-3xl md:text-5xl font-bold">{name}</h1>
                 <p className="py-6">{bio}</p>
                 <ul className="space-y-2">
                   <li>
@@ -63,7 +66,7 @@ const SingleChef = () => {
           <div className="flex justify-center items-center mb-8">
             <h3 className="text-2xl font-semibold">Recipes</h3>
           </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 mb-10">
             {chefRecipes.map((recipe) => (
               <Recipes key={recipe.recipe_id} recipe={recipe} />
             ))}

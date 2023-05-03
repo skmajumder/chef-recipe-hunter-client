@@ -19,7 +19,7 @@ const AllRecipes = () => {
       <Breadcrumb pageTitle={pageTitle} />
       <section className="all-chefs mt-10">
         <div className="container px-6 py-14">
-          <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 mb-10">
             {allRecipes.map((recipe) => (
               <Recipes key={recipe.recipe_id} recipe={recipe} />
             ))}
