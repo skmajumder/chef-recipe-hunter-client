@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
@@ -13,6 +13,13 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [loginError, setLoginError] = useState("");
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const destination = location?.state?.from?.pathname || "/";
+
+  console.log(destination);
 
   const handleEmail = (event) => {
     const emailInput = event.target.value;
@@ -55,6 +62,7 @@ const Login = () => {
         const user = userCredential.user;
         setEmail("");
         setPassword("");
+        navigate(destination);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -66,6 +74,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const loggedInUser = result.user;
+        navigate(destination);
       })
       .catch((error) => {
         setLoginError(`Error: ${error.message}`);
@@ -76,6 +85,7 @@ const Login = () => {
     githubSignIn()
       .then((result) => {
         const loggedInUser = result.user;
+        navigate(destination);
       })
       .catch((error) => {
         setLoginError(`Error: ${error.message}`);

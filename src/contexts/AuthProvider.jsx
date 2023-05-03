@@ -27,11 +27,13 @@ const AuthProvider = ({ children }) => {
 
   // Signup with Google
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // Signup with GitHub
   const githubSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -57,7 +59,6 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser);
       setLoading(false);
     });
     return () => unsubscribe();

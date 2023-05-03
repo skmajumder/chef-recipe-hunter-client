@@ -9,6 +9,7 @@ import RecipesLayout from "../layouts/Recipes/RecipesLayout";
 import AllRecipes from "../pages/Recipes/AllRecipes";
 import Login from "../pages/Home/Login/Login";
 import Register from "../pages/Home/Register/Register";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -41,13 +42,21 @@ const router = createBrowserRouter([
       },
       {
         path: ":id",
-        element: <SingleChef />,
+        element: (
+          <PrivateRouter>
+            <SingleChef />
+          </PrivateRouter>
+        ),
       },
     ],
   },
   {
     path: "recipes",
-    element: <RecipesLayout />,
+    element: (
+      <PrivateRouter>
+        <RecipesLayout />
+      </PrivateRouter>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
