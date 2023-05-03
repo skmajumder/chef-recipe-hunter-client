@@ -10,6 +10,8 @@ import AllRecipes from "../pages/Recipes/AllRecipes";
 import Login from "../pages/Home/Login/Login";
 import Register from "../pages/Home/Register/Register";
 import PrivateRouter from "./PrivateRouter";
+import BlogLayout from "../layouts/Blog/BlogLayout";
+import BlogPage from "../pages/Blog/BlogPage";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +64,17 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <AllRecipes />,
+      },
+    ],
+  },
+  {
+    path: "blog",
+    element: <BlogLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/blog",
+        element: <BlogPage />,
       },
     ],
   },

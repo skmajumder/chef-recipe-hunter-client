@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FcIphone } from "react-icons/fc";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Footer = () => {
+  const { user } = useContext(AuthContext);
   return (
     <footer className="footer bg-slate-800">
       <div className="container px-6 py-14">
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid md:grid-cols-4 gap-4">
           <div className="about">
             <h4 className="text-white text-[17px] font-semibold mb-4">
               Omnifood
@@ -47,17 +49,36 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to={"/"} className="text-white font-medium text-[14px]">
+                <Link
+                  to={"/chefs"}
+                  className="text-white font-medium text-[14px]"
+                >
                   Chefs
                 </Link>
               </li>
+              {user && (
+                <li className="mb-2">
+                  <Link
+                    to={"/recipes"}
+                    className="text-white font-medium text-[14px]"
+                  >
+                    Recipes
+                  </Link>
+                </li>
+              )}
               <li className="mb-2">
-                <Link to={"/"} className="text-white font-medium text-[14px]">
+                <Link
+                  to={"/login"}
+                  className="text-white font-medium text-[14px]"
+                >
                   Login
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to={"/"} className="text-white font-medium text-[14px]">
+                <Link
+                  to={"/blog"}
+                  className="text-white font-medium text-[14px]"
+                >
                   Blog
                 </Link>
               </li>

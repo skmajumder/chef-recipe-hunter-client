@@ -1,11 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { toast } from "react-hot-toast";
 
 // eslint-disable-next-line react/prop-types
 const Recipes = ({ recipe }) => {
+  const [isClicked, setIsClicked] = useState(false);
+  const notify = () => toast.success("Recipe is added in your favorite");
+
+  const handleClick = () => {
+    setIsClicked((prevResult) => !prevResult);
+    notify();
+  };
+
   const {
     // eslint-disable-next-line react/prop-types
     recipe_id,
@@ -45,6 +54,19 @@ const Recipes = ({ recipe }) => {
           <strong>Cooking Method: </strong>
           {cooking_method}
         </p>
+        <div>
+          <button
+            onClick={handleClick}
+            disabled={isClicked}
+            className={`${
+              isClicked
+                ? "btn btn-primary btn-sm btn-ghost cursor-no-drop"
+                : "btn btn-primary btn-sm"
+            }`}
+          >
+            {isClicked ? "Added" : "Add Favourite"}
+          </button>
+        </div>
       </div>
     </div>
   );
