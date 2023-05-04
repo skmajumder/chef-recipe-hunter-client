@@ -12,14 +12,18 @@ const SingleChef = () => {
   const [chefRecipes, setChefRecipes] = useState([]);
 
   useEffect(() => {
-    fetch(`https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs/${chefID}`)
+    fetch(
+      `https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs/${chefID}`
+    )
       .then((response) => response.json())
       .then((data) => setChefDetails(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    fetch(`https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs/recipes/${chefID}`)
+    fetch(
+      `https://chef-recipe-hunter-server-side-kolpodrovercel-gmailcom.vercel.app/chefs/recipes/${chefID}`
+    )
       .then((response) => response.json())
       .then((data) => setChefRecipes(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,7 +44,6 @@ const SingleChef = () => {
                   className="w-full md:max-w-md rounded-lg shadow-2xl"
                 />
               </LazyLoad>
-
               <div className="chef-info">
                 <h1 className="text-3xl md:text-5xl font-bold">{name}</h1>
                 <p className="py-6">{bio}</p>

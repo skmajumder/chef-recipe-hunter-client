@@ -11,10 +11,11 @@ const PrivateRouter = ({ children }) => {
   if (loading) {
     return (
       <>
-        <progress className="progress w-56"></progress>
-        <progress className="progress w-56"></progress>
-        <progress className="progress w-56"></progress>
-        <progress className="progress w-56"></progress>
+        <div className="flex justify-center items-center p-10">
+          <div className="radial-progress" style={{ "--value": 100 }}>
+            100%
+          </div>
+        </div>
       </>
     );
   }
